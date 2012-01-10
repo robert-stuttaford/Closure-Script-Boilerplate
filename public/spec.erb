@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Closure-Script Boilerplate Specs</title>
+  <link rel="stylesheet" type="text/css" href="/jasmine/lib/jasmine-core/jasmine.css">
+  <script src="/app/compiler.js"></script>
+  <script src="/jasmine/lib/jasmine-core/jasmine.js"></script>
+  <script src="/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="/spec_helpers/jquery.js"></script>
+  <script src="/spec_helpers/matchers.js"></script>
+  <script src="/spec_helpers/spec_helper.js"></script>
+  <script src="/spec_helpers/load_fixture.js"></script>
+  <script src="/spec_helpers/jquery_matchers.js"></script>
+</head>
+<body>
+  <script>
+    function removeComponent (component) {
+      component.exitDocument();
+      if (component.element_) {
+        goog.dom.removeNode(component.element_);
+      }
+    }
+  </script>
+<% if query_string.length > 0 %>
+  <script src="/app/<%= query_string %>_spec.js"></script>
+<% else %>
+  <% specs = Dir.glob(expand_path('../app/**/*_spec.js')).map { |x| relative_src(x).dump }
+     specs.each do |item| %>
+  <script src=<%= item %>></script>
+  <% end %>
+<% end %>
+  <script>
+    jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+    jasmine.getEnv().execute();
+    $('#__jasmine_TrivialReporter_showPassed__').prop('checked',true);
+    $('#__jasmine_TrivialReporter_showPassed__').trigger('click');
+  </script>
+  <div id="sandbox"></div>
+</body>
+</html>

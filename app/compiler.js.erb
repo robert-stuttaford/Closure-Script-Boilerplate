@@ -1,0 +1,33 @@
+<%
+args = %w{
+  --summary_detail_level 3
+  --ns app.App
+}
+compiled = %w{
+  --compilation_level ADVANCED_OPTIMIZATIONS
+  --warning_level VERBOSE
+  --language_in ECMASCRIPT5_STRICT
+}
+compiled += Dir.glob( expand_path('../externs/*.externs.js') ).map { |x| ['--externs',x] }
+compiled.flatten!
+
+args += case query_string
+when 'build' then compiled + %w{
+  --js_output_file ../public/js/app.js
+  --create_source_map ../public/js/app.map
+}
+when 'debug' then compiled + %w{
+  --js_output_file ../public/js/app.debug.js
+  --debug true
+  --formatting PRETTY_PRINT
+}
+else;[];end
+goog.soy_to_js %w{
+  --cssHandlingScheme goog
+  --shouldGenerateJsdoc
+  --shouldProvideRequireSoyNamespaces
+  --outputPathFormat {INPUT_DIRECTORY}{INPUT_FILE_NAME}.js
+  **/*.soy
+}
+@response = goog.compile(args).to_response
+%>

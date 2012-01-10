@@ -1,0 +1,98 @@
+<% all_test_files = Dir.glob expand_path '../app/**/*_spec.js'
+   json_strings = all_test_files.map { |x| relative_src(x).dump } -%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closure-Script Boilerplate</title>
+<style>
+  body { background: #222; }
+  div#left { width: 350px; overflow: scroll-y }
+  a { color: #fff; font-weight: bold; font-family: monospace; text-decoration: none; font-size: 16px; border-radius: 3px; background: #555; padding: 4px 8px; display: inline-block; text-shadow: 1px 1px #000 }
+  a span { font-weight: normal; font-size:12px; font-family: 'HelveticaNeue', sans-serif; margin-bottom:4px; display:inline-block; color: #ccc; }
+  a:hover, a.selected { background: #fff; color:#000; box-shadow: #000 1px 1px 2px;  text-shadow: 1px 1px #ccc }
+  a:hover span, a.selected span { color:#525252; }
+  button { color: #fff; font-weight: bold; font-family: monospace; text-decoration: none; font-size: 16px; border-radius: 8px; background: #888; padding: 4px 8px; text-align: center; margin: 5px auto; width: 200px }
+  button:hover { background: #fff; color:#525252; box-shadow: #000 1px 1px 2px; }
+  ul { margin-left: 0; padding-left: 10px; margin-bottom: 10px }
+  li { list-style: none; margin-left: 0; margin-bottom: 12px; }
+  ul.flow { overflow: hidden; }
+  ul.flow li { float: left; margin-right: 12px; }
+  li.first { padding-bottom: 5px }
+  #iframeContainer { position: absolute; top: 0; bottom: 0; left: 350px; right: 0; }
+  iframe { border: 0; padding: 0; margin: 0; width: 100%; height: 99%; background: #fff; }
+</style>
+  <script src="/closure-library/closure/goog/base.js"></script>
+  <script src="/spec_helpers/jquery.js"></script>
+  <script>
+    goog.require('goog.dom');
+    goog.require('goog.events');
+    goog.require('goog.events.KeyCodes');
+    goog.require('goog.events.KeyHandler');
+    goog.require('goog.testing.events');
+  </script>
+</head>
+<body>
+<div id="left">
+  <div align="center">
+    <button id="refresh">Refresh</button>
+  </div>
+  <ul id="links">
+    <li class="first"><a href="spec.html" target="iframe" id="allSpecs">all specs</a></li>
+  </ul>
+  <ul class="flow">
+    <% json_strings.each do |item|
+         item = item.gsub( /"/, '' ).gsub('../','').gsub(/app\//, '').gsub( /_spec\.js/, '' )
+         items = item.split('/')
+         name = items.pop
+         items = items.join(' &gt; ') %>
+        <li><a href="spec?<%= item %>" target="iframe"><span><%= items %></span><br/><%= name %></a></li>
+    <% end %>
+  </ul>
+  <hr/>
+  <ul>
+    <li><a href="/dev" target="iframe">Development</a></li>
+    <li><a href="/debug" target="iframe">Debug</a> <a href="/debug_build" target="iframe">(Builder)</a></li>
+    <li><a href="/production" target="iframe">Production</a> <a href="/production_build" target="iframe">(Builder)</a></li>
+  </ul>
+  <hr/>
+  <ul>
+    <li><a href="/externsgen" target="iframe">Externs Generator</a></li>
+    <li><a href="/closure-library/closure/goog/demos/index.html" target="_blank">Closure Demos</a></li>
+    <li><a href="http://closure-library.googlecode.com/svn/docs/index.html" target="_blank">Closure Library API docs</a></li>
+    <li><a href="http://code.google.com/closure/templates/docs/commands.html" target="_blank">Closure Templates API docs</a></li>
+  </ul>
+</div>
+<div id="iframeContainer">
+  <iframe frameborder="0" id="iframe"></iframe>
+</div>
+<script>
+  var refreshFrame = function () {
+    goog.dom.getElement('iframe').contentWindow.location.reload(true);
+  };
+  var current = null;
+  goog.events.listen(goog.dom.getElement('links'), 'click', function(event) {
+    if ( current ) {
+      current.className = '';
+    }
+    current = event.target;
+    if ( current ) {
+      current.className = "selected";
+    }
+  });
+  goog.events.listen(goog.dom.getElement('refresh'), 'click', function(e) {
+    refreshFrame();
+  });
+  var rootKeyHandler = new goog.events.KeyHandler(document);
+  goog.events.listen(rootKeyHandler, goog.events.KeyHandler.EventType.KEY, function(e) {
+    if (e.keyCode == goog.events.KeyCodes.R) {
+      refreshFrame();
+    }
+    if (e.keyCode == goog.events.KeyCodes.A) {
+      var event = document.createEvent("MouseEvents");
+      event.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      $('#allSpecs')[0].dispatchEvent(event);
+    }
+  });
+</script>
+</body>
+</html>

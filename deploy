@@ -1,0 +1,32 @@
+#!/bin/bash
+
+./images
+
+if [ ! -f public/css/style.css ];
+then
+    echo "public/css/style.css not found!"
+fi
+
+if [ ! -f public/js/app.js ];
+then
+    echo "public/js/app.js not found!"
+fi
+
+if [ ! -f public/js/app.debug.js ];
+then
+    echo "public/js/app.debug.js not found!"
+fi
+
+SERVER="/path/to/public/web"
+PUBLIC="$SERVER/public"
+
+if [ -d $SERVER ];
+then
+    rm -rf $PUBLIC/*
+    cp -r build/* $PUBLIC
+    cp -r public/css $PUBLIC
+    cp -r public/fonts $PUBLIC
+    cp -r public/js $PUBLIC
+else
+    echo "$SERVER not found!"
+fi

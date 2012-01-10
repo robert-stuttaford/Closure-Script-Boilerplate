@@ -1,0 +1,11 @@
+@include font-face("Droid Sans",
+                    font-files("/fonts/droidsans-webfont.woff", woff,
+                               "/fonts/droidsans-webfont.ttf", truetype,
+                               "/fonts/droidsans-webfont.svg", svg),
+                    "/fonts/droidsans-webfont.eot");
+
+@include font-face("Droid Sans Bold",
+                    font-files("/fonts/droidsans-bold-webfont.woff", woff,
+                               "/fonts/droidsans-bold-webfont.ttf", truetype,
+                               "/fonts/droidsans-bold-webfont.svg", svg),
+                    "/fonts/droidsans-bold-webfont.eot");

@@ -1,0 +1,24 @@
+#!/bin/bash
+shopt -s nullglob
+
+echo "copy"
+rm -rf build/img
+mkdir -p build/img
+cp -r public/img/* build/img
+
+echo "pngs"
+for f in build/img/*.png
+do
+  optipng -quiet -o7 -out build/img/$(basename $f) $f
+done
+
+echo "jpgs"
+for f in build/img/*.jpg
+do
+  jpegtran -copy none -optimize -outfile build/img/$(basename $f) $f
+done
+
+echo "before"
+du -hs public/img
+echo "after"
+du -hs build/img

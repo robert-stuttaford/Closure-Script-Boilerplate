@@ -1,0 +1,120 @@
+/* HTML5 Boilerplate ==|== normalize ========================================================== */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+
+audio:not([controls]) { display: none; }
+
+[hidden] { display: none; }
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+::-moz-selection { background: #00a0db; color: #fff; text-shadow: none; }
+
+::selection { background: #00a0db; color: #fff; text-shadow: none; }
+
+a { color: #00e; }
+
+a:visited { color: #551a8b; }
+
+a:hover { color: #06e; }
+
+a:focus { outline: thin dotted; }
+
+a:hover, a:active { outline: 0; }
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+
+dd { margin: 0 0 0 40px; }
+
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+svg:not(:root) { overflow: hidden; }
+
+figure { margin: 0; }
+
+form { margin: 0; }
+
+fieldset { border: 0; margin: 0; padding: 0; }
+
+label { cursor: pointer; }
+
+legend { border: 0; *margin-left: -7px; padding: 0; }
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+button, input { line-height: normal; *overflow: visible; }
+
+table button, table input { *overflow: auto; }
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+td { vertical-align: top; }
+
+@font-face { font-family: "Droid Sans"; src: url(/fonts/droidsans-webfont.eot); src: url(/fonts/droidsans-webfont.eot?iefix) format('eot'), url(/fonts/droidsans-webfont.woff) format('woff'), url(/fonts/droidsans-webfont.ttf) format('truetype'), url(/fonts/droidsans-webfont.svg) format('svg'); }
+
+@font-face { font-family: "Droid Sans Bold"; src: url(/fonts/droidsans-bold-webfont.eot); src: url(/fonts/droidsans-bold-webfont.eot?iefix) format('eot'), url(/fonts/droidsans-bold-webfont.woff) format('woff'), url(/fonts/droidsans-bold-webfont.ttf) format('truetype'), url(/fonts/droidsans-bold-webfont.svg) format('svg'); }
+
+html { height: 100%; }
+
+body { font-family: "Helvetica Neue", Arial, sans-serif; }
+
+#loadingIndicator { -moz-border-radius-bottomleft: 8px; -webkit-border-bottom-left-radius: 8px; -ms-border-bottom-left-radius: 8px; border-bottom-left-radius: 8px; position: fixed; top: 0; right: 0; z-index: 20; background: black url("/img/ajax-loader.gif") center center no-repeat; width: 50px; height: 50px; }
+
+button { font-size: 12px; padding: 0.3em 1.5em; display: inline-block; cursor: pointer; line-height: 1.5; -moz-border-radius: 4px; -webkit-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; background-color: #de1f4f; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ef8da6), color-stop(50%, #de1f4f), color-stop(100%, #b1193f)); background: -webkit-linear-gradient(#ef8da6, #de1f4f 50%, #b1193f); background: -moz-linear-gradient(#ef8da6, #de1f4f 50%, #b1193f); background: -ms-linear-gradient(#ef8da6, #de1f4f 50%, #b1193f); background: linear-gradient(#ef8da6, #de1f4f 50%, #b1193f); -moz-box-shadow: #f9d0db 0 1px 0 inset; -webkit-box-shadow: #f9d0db 0 1px 0 inset; box-shadow: #f9d0db 0 1px 0 inset; border: 1px solid #9b1637; color: white; text-shadow: #b81a41 0 1px 0; font-family: Droid Sans Bold; margin: 5px; }
+button:hover { background-color: #b1193f; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ee849f), color-stop(50%, #b1193f), color-stop(100%, #8d1432)); background: -webkit-linear-gradient(#ee849f, #b1193f 50%, #8d1432); background: -moz-linear-gradient(#ee849f, #b1193f 50%, #8d1432); background: -ms-linear-gradient(#ee849f, #b1193f 50%, #8d1432); background: linear-gradient(#ee849f, #b1193f 50%, #8d1432); }
+button:active { -moz-box-shadow: #8d1432 0 1px 2px inset; -webkit-box-shadow: #8d1432 0 1px 2px inset; box-shadow: #8d1432 0 1px 2px inset; }
+button.goog-button-disabled, button.goog-button-disabled:hover { border-color: #d2d2d2; background: #ddd; cursor: default; text-shadow: none; }
+button.large { -moz-border-radius: 6px; -webkit-border-radius: 6px; -ms-border-radius: 6px; border-radius: 6px; font-size: 16px; margin: 8px; }
+
+.widget { margin: 3em; font-weight: bold; font-size: 24px; font-family: "Droid Sans", sans-serif; }
