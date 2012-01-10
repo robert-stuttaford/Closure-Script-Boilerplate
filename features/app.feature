@@ -2,8 +2,7 @@
 Feature: Start Feature
 
   Background:
-    When I visit the app
 
-  Scenario: Open the Chooser from the Start page
-    When I click the "Choose a Cog" button
-    Then I should see the "chooser" overlay
+  Scenario: See the widget
+    When I visit the app
+    Then I should see "A Widget."
