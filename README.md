@@ -1,6 +1,6 @@
 # Closure-Script Boilerplate
 
-Google Closure development with the [Closure-Script](https://github.com/dturnbull/closure-script) gem, [Jasmine](https://github.com/pivotal/jasmine) for BDD style unit testing, and [Cucumber](http://cukes.info/) with [Capybara](https://github.com/jnicklas/capybara) for functional/integration/acceptance testing. Also included are Sass/Compass with the HTML5 Boilerplate all sassed up, and Guard for Coffeescript compilation, so that Jasmine tests can be written with Coffeescript.
+Google Closure development with the [Closure-Script](https://github.com/dturnbull/closure-script) gem, [Jasmine](https://github.com/pivotal/jasmine) for BDD style unit testing, and [Cucumber](http://cukes.info/) with [Capybara](https://github.com/jnicklas/capybara) for functional/integration/acceptance testing. Also included are Sass/Compass with the HTML5 Boilerplate CSS all sassed up, and Guard for Coffeescript compilation so that Jasmine tests can be written with Coffeescript.
 
 I use this on OSX Lion. Prerequisites: Ruby 1.9.2 (haven't tested 1.8 or JRuby) via `rvm` and `homebrew`.
 
@@ -33,7 +33,7 @@ Start the Rack server:
 
 	./serve
 
-Visit `localhost:3000` to see the development dashboard.
+Visit <http://localhost:3000> to see the development dashboard.
 
 If you're writing Jasmine tests, be sure to start guard:
 
@@ -51,10 +51,10 @@ The left column has a couple sections:
 
 * A big refresh button, mapped to keyboard shortcut 'r'. This refreshes the iframe.
 * Links to Jasmine specs:
-	* A link to run all the _spec.js files found inside `app/` (regardless of depth) at the same time.
+	* A link to run all the _spec.js files found inside `app/` (regardless of depth) at the same time. Shortcut key 'a'.
 	* A dynamic list of all those _spec.js files, nicely formatted for readability. My own project uses short filenames, so I chose to allow more than one spec per line for compactness.
 * Links to view the app itself:
-	* Development version (uncompiled)
+	* Development version (uncompiled).
 	* Compiled debug version, and the compile-on-demand debug version, which produces the app.debug.js used by the compiled version.
 	* Compiled production version, and the compile-on-demand production version, which produces the app.js used by the compiled version.
 * Tools and reference:
@@ -63,16 +63,28 @@ The left column has a couple sections:
 
 ## Cucumber/Capybara testing
 
-Start the `spark` daemon:
+Start the `spork` daemon:
 
 	spork
 
-Then run `cucumber --drb` to run your cucumber integration tests. See `features/app.feature` for a sample test. See <http://cheat.errtheblog.com/s/capybara> for a quick reference and <https://github.com/jnicklas/capybara> for the full story.
+Then run: 
+	
+	`cucumber --drb`
+
+To run your cucumber integration tests. See `features/app.feature` for a sample test. See <http://cheat.errtheblog.com/s/capybara> for a quick reference and <https://github.com/jnicklas/capybara> for the full story.
 
 ## Deployment
 
-To take advantage of the image compression, install `optipng` and `jpegtrans`:
+To take advantage of the image compression in the deploy script, install `optipng` and `jpegtrans`:
 
 	brew install optipng jpeg
 
 Alter the deploy script to suit your own requirements. I target this script in my Jenkins CI build configuration.
+
+## Thanks
+
+A great big thank you to all the fine folks who put everything that I am using together!
+
+## License
+
+Do as you please.
