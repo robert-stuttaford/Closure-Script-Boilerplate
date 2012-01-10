@@ -69,7 +69,7 @@ Start the `spork` daemon:
 
 Then run: 
 	
-	`cucumber --drb`
+	cucumber --drb
 
 To run your cucumber integration tests. See `features/app.feature` for a sample test. See <http://cheat.errtheblog.com/s/capybara> for a quick reference and <https://github.com/jnicklas/capybara> for the full story.
 
