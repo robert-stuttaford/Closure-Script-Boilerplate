@@ -53,6 +53,7 @@ The left column has a couple sections:
 * Links to Jasmine specs:
 	* A link to run all the _spec.js files found inside `app/` (regardless of depth) at the same time. Shortcut key 'a'.
 	* A dynamic list of all those _spec.js files, nicely formatted for readability. My own project uses short filenames, so I chose to allow more than one spec per line for compactness.
+* Links to functionals. Development largely consists of building model code (tested with Jasmine unit tests) and UI code, which we test with Cucumber/Capybara. As one's app grows, we often like to construct only parts of the interface as so to reduce development grunt work, for example, to exclude having to sign in, or navigate several times to reach the component/view that we are building. This is a list of the functional mini-apps that focus on just part of the apps UI, suitable for capybara tests to run against directly.
 * Links to view the app itself:
 	* Development version (uncompiled).
 	* Compiled debug version, and the compile-on-demand debug version, which produces the app.debug.js used by the compiled version.
@@ -84,6 +85,15 @@ Alter the deploy script to suit your own requirements. I target this script in m
 ## Thanks
 
 A great big thank you to all the fine folks who put everything that I am using together!
+
+## Changelog
+
+* 15 Jan 2012. 
+	* Refactored the public/*.erb and app/compiler.js.erb files so that a single public erb file handles all the build cases, and to allow for a target namespace to be passed to the compiler via the querystring.
+	* Added 'functionals' test shortcuts section to development dashboard.
+	* Updated cucumber tests to use functional test code.
+	* Include a simple cucumber test to verify that all Jasmine specs pass, in preparation for automated post-receive hook continuous integration with Jenkins. Use `cucumber --drb -n spec` to run this.
+* 11 Jan 2012. Initial release.
 
 ## License
 

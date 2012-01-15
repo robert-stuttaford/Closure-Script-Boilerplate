@@ -1504,7 +1504,7 @@ function $app$ui$Widget$$($opt_domHelper$$3$$) {
 $goog$inherits$$($app$ui$Widget$$, $goog$ui$Component$$);
 $app$ui$Widget$$.prototype.$createDom$ = function $$app$ui$Widget$$$$$createDom$$() {
   var $JSCompiler_StaticMethods_htmlToDocumentFragment$self$$inline_232_JSCompiler_inline_result$$256_doc$$inline_257_fragment$$inline_260$$ = new $goog$dom$DomHelper$$($JSCompiler_alias_VOID$$) || $goog$dom$getDomHelper$$(), $output$$inline_253_tempDiv$$inline_259$$ = new $goog$string$StringBuffer$$;
-  $output$$inline_253_tempDiv$$inline_259$$.append('<div class="component">A Component.</div>');
+  $output$$inline_253_tempDiv$$inline_259$$.append('<div class="widget">A Widget.</div>');
   var $JSCompiler_StaticMethods_htmlToDocumentFragment$self$$inline_232_JSCompiler_inline_result$$256_doc$$inline_257_fragment$$inline_260$$ = $JSCompiler_StaticMethods_htmlToDocumentFragment$self$$inline_232_JSCompiler_inline_result$$256_doc$$inline_257_fragment$$inline_260$$.$document_$, $htmlString$$inline_258$$ = $output$$inline_253_tempDiv$$inline_259$$.toString(), $output$$inline_253_tempDiv$$inline_259$$ = $JSCompiler_StaticMethods_htmlToDocumentFragment$self$$inline_232_JSCompiler_inline_result$$256_doc$$inline_257_fragment$$inline_260$$.createElement("div");
   $goog$userAgent$IE$$ ? ($output$$inline_253_tempDiv$$inline_259$$.innerHTML = "<br>" + $htmlString$$inline_258$$, $output$$inline_253_tempDiv$$inline_259$$.removeChild($output$$inline_253_tempDiv$$inline_259$$.firstChild)) : $output$$inline_253_tempDiv$$inline_259$$.innerHTML = $htmlString$$inline_258$$;
   if(1 == $output$$inline_253_tempDiv$$inline_259$$.childNodes.length) {
@@ -1546,9 +1546,8 @@ function $app$App$$() {
 }
 $goog$inherits$$($app$App$$, $goog$events$EventTarget$$);
 $app$App$$.prototype.$startUp_$ = function $$app$App$$$$$startUp_$$() {
-  this.$component_$ = new $app$ui$Widget$$;
-  var $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$ = this.$main_$, $child$$inline_236$$ = this.$component_$, $index$$inline_237_opt_beforeNode$$inline_272_sibling$$inline_240$$ = $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$ ? $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$.length : 
-  0;
+  this.$widget_$ = new $app$ui$Widget$$;
+  var $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$ = this.$main_$, $child$$inline_236$$ = this.$widget_$, $index$$inline_237_opt_beforeNode$$inline_272_sibling$$inline_240$$ = $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$ ? $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$.length : 0;
   $child$$inline_236$$.$inDocument_$ && $JSCompiler_alias_THROW$$(Error("Component already rendered"));
   (0 > $index$$inline_237_opt_beforeNode$$inline_272_sibling$$inline_240$$ || $index$$inline_237_opt_beforeNode$$inline_272_sibling$$inline_240$$ > ($JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$ ? $JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$.length : 0)) && $JSCompiler_alias_THROW$$(Error("Child component index out of bounds"));
   if(!$JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$childIndex_$ || !$JSCompiler_StaticMethods_addChild$self$$inline_190_contentElement$$inline_239_opt_parentElement$$inline_271$$.$children_$) {

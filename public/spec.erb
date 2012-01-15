@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Closure-Script Boilerplate Specs</title>
+  <title>Cognician Specs</title>
   <link rel="stylesheet" type="text/css" href="/jasmine/lib/jasmine-core/jasmine.css">
-  <script src="/app/compiler.js"></script>
+  <script src="/cognician/compiler.js"></script>
   <script src="/jasmine/lib/jasmine-core/jasmine.js"></script>
   <script src="/jasmine/lib/jasmine-core/jasmine-html.js"></script>
   <script src="/spec_helpers/jquery.js"></script>
@@ -23,9 +23,9 @@
     }
   </script>
 <% if query_string.length > 0 %>
-  <script src="/app/<%= query_string %>_spec.js"></script>
+  <script src="/cognician/<%= query_string %>_spec.js"></script>
 <% else %>
-  <% specs = Dir.glob(expand_path('../app/**/*_spec.js')).map { |x| relative_src(x).dump }
+  <% specs = Dir.glob(expand_path('../cognician/**/*_spec.js')).map { |x| relative_src(x).dump }
      specs.each do |item| %>
   <script src=<%= item %>></script>
   <% end %>

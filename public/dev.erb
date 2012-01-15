@@ -1,8 +1,17 @@
+<%
+if query_string == 'production_static' then
+  js = 'js/app.js'
+elsif query_string == 'debug_static' then
+  js = 'js/app.debug.js'
+elsif query_string.length then
+  js = 'app/compiler.js?' + query_string
+end
+%>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <title>Closure-Script Boilerplate</title>
@@ -11,7 +20,7 @@
   <script type="text/javascript" src="js/modernizr-2.0.6.js"></script>
 </head>
 <body>
-  <script src="app/compiler.js"></script>
+  <script src="<%= js %>"></script>
   <script>start();</script>
 </body>
 </html>

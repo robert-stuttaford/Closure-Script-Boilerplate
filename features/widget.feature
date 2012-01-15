@@ -1,8 +1,8 @@
 @javascript
-Feature: Start Feature
+Feature: Widget Feature
 
   Background:
 
   Scenario: See the widget
-    When I visit the app
+    When I visit the "Widget" functional test
     Then I should see "A Widget."
