@@ -3,5 +3,5 @@ When /^I visit the all\-specs page$/ do
 end
 
 Then /^I should see no failing specs$/ do
-  page.has_content? 'specs, 0 failures in'
+  page.should have_content 'specs, 0 failures in'
 end
